@@ -73,14 +73,14 @@ def create_tables(cursor):
     """)
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXIST categories(
+    CREATE TABLE IF NOT EXISTS categories(
         id INTEGER PRIMARY KEY,
         cat_name TEXT
     )
     """)
 
     cursor.execute("""
-    CREATE TABLE IF NOT EXIST items(
+    CREATE TABLE IF NOT EXISTS items(
         item_name TEXT NOT NULL,
         price REAL NOT NULL,
         content TEXT NOT NULL,
