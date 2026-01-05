@@ -61,6 +61,7 @@ def init_db():
     cursor = conn.cursor()
     create_tables(cursor)
     filling_tables(cursor, conn)
+    conn.close()
 
 def create_tables(cursor):
     cursor.execute("""
