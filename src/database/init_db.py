@@ -85,8 +85,9 @@ def create_tables(cursor):
         item_name TEXT NOT NULL,
         price REAL NOT NULL,
         content TEXT NOT NULL,
-        cat_id INTEGER NOT NULL
-        is_deleted INTEGER DEFAULT 0 CHECK(is_deleted IN (0,1))
+        cat_id INTEGER NOT NULL,
+        is_deleted INTEGER DEFAULT 0 CHECK(is_deleted IN (0,1)),
+        FOREIGN KEY cat_id REFERENCES categories(id)
     )
     """)
 
