@@ -4,7 +4,7 @@ from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, CallbackQuery
 
 # Imports from project files
-# from keyboards.user_kb import main_menu, catalog_kb
+from keyboards import main_menu # , catalog_kb
 # from services.product import get_products
 # from database.db import add_order
 
@@ -16,7 +16,8 @@ router = Router()
 async def command_start_handler(message: Message) -> None:
     await message.answer(
         f"Hello, {html.bold(message.from_user.full_name)}!\n"
-        f"In this bot You can buy goods from a universe far, far away."
+        f"In this bot You can buy goods from a universe far, far away.",
+        reply_markup=main_menu()
     )
 
 @router.message()
