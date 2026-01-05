@@ -11,48 +11,48 @@ initial_categories = [
 
 initial_items = [
     # 1. Weapons and Artifacts
-    (None, "Captain Hook's hook", 500, "hook_skin_01", 1, 0),
-    (None, "Witcher swords", 2500, "blueprint_swords", 1, 0),
-    (None, "Lightsabers", 4000, "kyber_crystal_pack", 1, 0),
-    (None, "DL-44 Blaster", 1200, "han_shot_first", 1, 0),
-    (None, "Phaser Type-2", 900, "stun_setting_only", 1, 0),
-    (None, "Portal Gun", 9999, "cake_is_a_lie", 1, 0),
-    (None, "Mjölnir", 50000, "odin_enchantment", 1, 0),
-    (None, "One Ring", 100000, "my_precious", 1, 0),
-    (None, "Darkslicer Black Sword", 4500, "darksaber_v1", 1, 0),
+    ("Captain Hook's hook", 500, "hook_skin_01", 1, 0),
+    ("Witcher swords", 2500, "blueprint_swords", 1, 0),
+    ("Lightsabers", 4000, "kyber_crystal_pack", 1, 0),
+    ("DL-44 Blaster", 1200, "han_shot_first", 1, 0),
+    ("Phaser Type-2", 900, "stun_setting_only", 1, 0),
+    ("Portal Gun", 9999, "cake_is_a_lie", 1, 0),
+    ("Mjölnir", 50000, "odin_enchantment", 1, 0),
+    ("One Ring", 100000, "my_precious", 1, 0),
+    ("Darkslicer Black Sword", 4500, "darksaber_v1", 1, 0),
 
     # 2. Transport
-    (None, "TIE Fighter", 150000, "sienar_fleet_sys", 2, 0),
-    (None, "X-Wing", 160000, "red_five_standing_by", 2, 0),
-    (None, "Millennium Falcon", 500000, "hyperdrive_broken", 2, 0),
-    (None, "DeLorean DMC-12", 88000, "1.21_gigawatts", 2, 0),
-    (None, "TARDIS", 1000000, "time_vortex_key", 2, 0),
-    (None, "Batmobile", 300000, "wayne_tech_auth", 2, 0),
+    ("TIE Fighter", 150000, "sienar_fleet_sys", 2, 0),
+    ("X-Wing", 160000, "red_five_standing_by", 2, 0),
+    ("Millennium Falcon", 500000, "hyperdrive_broken", 2, 0),
+    ("DeLorean DMC-12", 88000, "1.21_gigawatts", 2, 0),
+    ("TARDIS", 1000000, "time_vortex_key", 2, 0),
+    ("Batmobile", 300000, "wayne_tech_auth", 2, 0),
 
     # 3. Technology
-    (None, "Exosuit", 8500, "mimic_defense_sys", 3, 0),
-    (None, "Holographic communicator", 600, "obi_wan_msg", 3, 0),
-    (None, "Tricorder", 1200, "med_scan_results", 3, 0),
-    (None, "Cybernetic implants", 3000, "arasaka_mk1", 3, 0),
-    (None, "Neural interface", 4500, "matrix_jack_in", 3, 0),
-    (None, "Arc Reactor", 15000, "proof_tony_has_heart", 3, 0),
-    (None, "Omnitrix", 7000, "hero_time_10", 3, 0),
-    (None, "Anti-gravity boots", 2100, "zero_g_protocol", 3, 0),
-    (None, "Star Trek Transporter", 6000, "beam_me_up", 3, 0),
+    ("Exosuit", 8500, "mimic_defense_sys", 3, 0),
+    ("Holographic communicator", 600, "obi_wan_msg", 3, 0),
+    ("Tricorder", 1200, "med_scan_results", 3, 0),
+    ("Cybernetic implants", 3000, "arasaka_mk1", 3, 0),
+    ("Neural interface", 4500, "matrix_jack_in", 3, 0),
+    ("Arc Reactor", 15000, "proof_tony_has_heart", 3, 0),
+    ("Omnitrix", 7000, "hero_time_10", 3, 0),
+    ("Anti-gravity boots", 2100, "zero_g_protocol", 3, 0),
+    ("Star Trek Transporter", 6000, "beam_me_up", 3, 0),
 
     # 4. Exotic Items
-    (None, "Pet Groot", 800, "i_am_groot", 4, 0),
-    (None, "Astromech droid", 3500, "beep_boop_whistle", 4, 0),
-    (None, "Xenomorph egg", 1000, "facehugger_inside", 4, 0),
-    (None, "Covenant Plasma Sword", 1300, "halo_energy_key", 4, 0),
-    (None, "Infinity Stones", 5000, "snap_fingers", 4, 0),
-    (None, "Spice Melange", 2000, "must_flow", 4, 0),
+    ("Pet Groot", 800, "i_am_groot", 4, 0),
+    ("Astromech droid", 3500, "beep_boop_whistle", 4, 0),
+    ("Xenomorph egg", 1000, "facehugger_inside", 4, 0),
+    ("Covenant Plasma Sword", 1300, "halo_energy_key", 4, 0),
+    ("Infinity Stones", 5000, "snap_fingers", 4, 0),
+    ("Spice Melange", 2000, "must_flow", 4, 0),
 
     # 5. Services (Disguised as Goods)
-    (None, "Fake Imperial passport", 600, "chain_code_clear", 5, 0),
-    (None, "Hyperspace route map", 900, "nav_computer_data", 5, 0),
-    (None, "Jedi Library Access", 1500, "jocasta_nu_permit", 5, 0),
-    (None, "Bounty Hunter License", 2200, "this_is_the_way", 5, 0)
+    ("Fake Imperial passport", 600, "chain_code_clear", 5, 0),
+    ("Hyperspace route map", 900, "nav_computer_data", 5, 0),
+    ("Jedi Library Access", 1500, "jocasta_nu_permit", 5, 0),
+    ("Bounty Hunter License", 2200, "this_is_the_way", 5, 0)
 ]
 
 
@@ -88,7 +88,7 @@ def create_tables(cursor):
         content TEXT NOT NULL,
         cat_id INTEGER NOT NULL,
         is_deleted INTEGER DEFAULT 0 CHECK(is_deleted IN (0,1)),
-        FOREIGN KEY cat_id REFERENCES categories(id)
+        FOREIGN KEY (cat_id) REFERENCES categories(id)
     )
     """)
 
@@ -100,6 +100,6 @@ def filling_tables(cursor, conn):
     
     cursor.execute("SELECT count(*) FROM items")
     if cursor.fetchone()[0] == 0:
-        cursor.executemany("INSERT INTO items (item_name, price, content, cat_id) VALUES (?, ?, ?, ?, ?, ?)", initial_items)
+        cursor.executemany("INSERT INTO items (item_name, price, content, cat_id) VALUES (?, ?, ?, ?, ?)", initial_items)
         conn.commit()
     print("Add testing categories and items")
