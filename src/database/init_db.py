@@ -59,6 +59,7 @@ initial_items = [
 def init_db():
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()
+    cursor.execute("PRAGMA foreign_keys = ON")
     create_tables(cursor)
     filling_tables(cursor, conn)
     conn.close()
@@ -81,7 +82,7 @@ def create_tables(cursor):
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS items(
-        id INTEGER PTIMARY KEY AUTOINCREMENT,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
         item_name TEXT NOT NULL,
         price REAL NOT NULL,
         content TEXT NOT NULL,
