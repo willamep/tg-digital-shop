@@ -3,7 +3,7 @@ from aiogram.types import InlineKeyboardMarkup
 from aiogram.filters.callback_data import CallbackData
 
 class MainMenuCB(CallbackData, prefix="main"):
-    page: str
+    chapter: str
 
 # class catalogCB(CallbackData, prefix="cat"):
 #     category_id: int
@@ -12,17 +12,18 @@ class MainMenuCB(CallbackData, prefix="main"):
 #     item_id: int
 
 # class BuyCB(CallbackData, prefix="buy"):
-#     page: int
+#     chapter: int
 
 # class ProfileCB(CallbackData, prefix="profile"):
 #     user_id: int
 
 # class CB(CallbackData, prefix=""):
-#     page: int
+#     chapter: int
 
 def main_menu() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
-    for i in range(6):
-        builder.button(text =f"Button {i}", callback_data=MainMenuCB(page=str(i)))
-    builder.adjust(3, 2)
+    builder.button(text=f"About Shop", callback_data=MainMenuCB(chapter="About Shop"))
+    builder.button(text=f"My Orders", callback_data=MainMenuCB(chapter="My Orders"))
+    builder.button(text=f"Catalog", callback_data=MainMenuCB(chapter="Catalog"))
+    builder.adjust(2, 1)
     return builder.as_markup()
