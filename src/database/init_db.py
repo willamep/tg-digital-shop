@@ -100,6 +100,6 @@ def filling_tables(cursor, conn):
     
     cursor.execute("SELECT count(*) FROM items")
     if cursor.fetchone()[0] == 0:
-        cursor.executemany("INSERT INTO items (item_name, price, content, cat_id) VALUES (?, ?, ?, ?, ?)", initial_items)
+        cursor.executemany("INSERT INTO items (item_name, price, content, cat_id, is_deleted) VALUES (?, ?, ?, ?, ?)", initial_items)
         conn.commit()
     print("Add testing categories and items")
