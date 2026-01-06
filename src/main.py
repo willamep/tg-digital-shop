@@ -9,8 +9,9 @@ from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
-# Importing routers
+# Project import
 from handlers import user_router # , admin_router, payment_router
+from database.init_db import init_db
 
 # Bot token obtained via .env
 load_dotenv()
@@ -23,6 +24,8 @@ async def main() -> None:
         token=TOKEN,
         default=DefaultBotProperties(parse_mode=ParseMode.HTML)
     )
+
+    init_db()
 
     # dp.include_router(admin_router)
     dp.include_router(user_router)
