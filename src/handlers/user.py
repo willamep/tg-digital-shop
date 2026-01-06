@@ -4,7 +4,7 @@ from aiogram.filters import Command, CommandStart
 from aiogram.types import Message, CallbackQuery
 
 # Imports from project files
-from keyboards import MainMenuCB, main_menu_kb, CatalogCB, catalog
+from keyboards import MainMenuCB, main_menu_kb, CatalogCB, catalog_kb, about_shop_kb
 # from services.product import get_products
 # from database.db import add_order
 
@@ -30,7 +30,7 @@ async def unknown_command(message: Message) -> None:
 @router.callback_query(MainMenuCB.filter(F.chapter == "Catalog"))
 async def catalog(query: CallbackQuery, callback_data: MainMenuCB):
     await query.answer()
-    await query.message.edit_text("Select a category", reply_markup=catalog())
+    await query.message.edit_text("Select a category", reply_markup=catalog_kb())
 
 @router.callback_query(MainMenuCB.filter(F.chapter == "My Orders"))
 async def orders(query: CallbackQuery, callback_data: MainMenuCB):
@@ -40,7 +40,11 @@ async def orders(query: CallbackQuery, callback_data: MainMenuCB):
 @router.callback_query(MainMenuCB.filter(F.chapter == "About Shop"))
 async def about_shop(query: CallbackQuery, callback_data: MainMenuCB):
     await query.answer()
-    await query.message.edit_text("Info about shop")
+    text = '''The Mandalorian's shop delivers goods from all over the universe, regardless of rarity: lightsabers, portal guns, globetrotters, fighter jets, and much, much more!
+(it's all a joke and a pet-project)
+
+Bot Creator: @Avocatocat'''
+    await query.message.edit_text(text, reply_markup=about_shop_kb())
 
 def start_text(full_name: str) -> str:
     return (

@@ -30,9 +30,17 @@ def main_menu_kb() -> InlineKeyboardMarkup:
     builder.adjust(2, 1)
     return builder.as_markup()
 
+def about_shop_kb() -> InlineKeyboardMarkup:
+    builder = InlineKeyboardBuilder()
+    builder.button(text=f"My Orders", callback_data=MainMenuCB(chapter="My Orders"))
+    builder.button(text=f"Catalog", callback_data=MainMenuCB(chapter="Catalog"))
+    builder.adjust(2)
+    return builder.as_markup()
+    
+
 def catalog_kb() -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
-    for cat in get_categories:
+    for cat in get_categories():
         builder.button(text=cat[1], callback_data=CatalogCB(cat_id=cat[0]))
     builder.adjust(2)
-    return builder.as_markup
+    return builder.as_markup()
