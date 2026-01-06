@@ -1,10 +1,10 @@
 # Imports from aiogram
-from aiogram import Router, F, html
-from aiogram.filters import Command, CommandStart
-from aiogram.types import Message, CallbackQuery
+from aiogram            import Router, F, html
+from aiogram.filters    import Command, CommandStart
+from aiogram.types      import Message, CallbackQuery
 
 # Imports from project files
-from keyboards import MainMenuCB, main_menu_kb, CatalogCB, catalog_kb, about_shop_kb
+from keyboards import MainMenuCB, main_menu_kb, CatalogCB, catalog_kb, about_shop_kb, ItemCB, items_kb
 # from services.product import get_products
 # from database.db import add_order
 
@@ -27,6 +27,7 @@ async def unknown_command(message: Message) -> None:
         reply_markup=main_menu_kb()
     ) 
 
+# Main menu callback handlers
 @router.callback_query(MainMenuCB.filter(F.chapter == "Catalog"))
 async def catalog(query: CallbackQuery, callback_data: MainMenuCB):
     await query.answer()
@@ -40,11 +41,15 @@ async def orders(query: CallbackQuery, callback_data: MainMenuCB):
 @router.callback_query(MainMenuCB.filter(F.chapter == "About Shop"))
 async def about_shop(query: CallbackQuery, callback_data: MainMenuCB):
     await query.answer()
-    text = '''The Mandalorian's shop delivers goods from all over the universe, regardless of rarity: lightsabers, portal guns, globetrotters, fighter jets, and much, much more!
-(it's all a joke and a pet-project)
-
-Bot Creator: @Avocatocat'''
+    text = '''The Mandalorian's shop delivers goods from all over the universe, regardless of rarity: lightsabers, portal guns, globetrotters, fighter jets, and much, much more!\n(it's all a joke and a pet-project)\n\n
+    Bot Creator: @Avocatocat'''
     await query.message.edit_text(text, reply_markup=about_shop_kb())
+
+# Catalog handler
+@router.callback_query(CatalogCB.filter())
+async def items(query: CallbackQuery, callback_data: CatalogCB):
+    await query.answer()
+    await query.message.edit_text("Select position", reply_markup=items_kb(callback_data.cat_id))
 
 def start_text(full_name: str) -> str:
     return (
