@@ -1,1 +1,1 @@
-from .user_kb import MainMenuCB, main_menu
+from .user_kb import MainMenuCB, main_menu_kb
