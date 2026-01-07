@@ -11,23 +11,50 @@ from keyboards import MainMenuCB, main_menu_kb, CatalogCB, catalog_kb, about_sho
 # Creating the router
 router = Router()
 
+async def render_start_menu(
+        *,
+        event: Message | CallbackQuery,
+        extra_prefix: str
+) -> None:
+    # Univers func for message in /start, back button and noidentification message
+    full_name = event.from_user.full_name
+    text = f"{extra_prefix}\n\n{start_text(full_name)}"
+
+    if isinstance(event, CallbackQuery):
+        await event.answer()
+        await event.message.edit_text(text, reply_markup=main_menu_kb)
+    else:
+        await event.answer(text, reply_markup=main_menu_kb)
+
+def start_text(full_name: str) -> str:
+    return (
+        f"Hello, {html.bold(full_name)}!\n"
+        "In this bot you can buy goods from a universe far, far away."
+    )
+
 # Handler for the /start command
 @router.message(CommandStart())
 async def command_start_handler(message: Message) -> None:
-    await message.answer(
-        f"{start_text(message.from_user.full_name)}",
-        reply_markup=main_menu_kb()
-    )
+    await render_start_menu(event=message)
+    # await message.answer(
+    #     f"{start_text(message.from_user.full_name)}",
+    #     reply_markup=main_menu_kb()
+    # )
 
 @router.message()
 async def unknown_command(message: Message) -> None:
-    await message.answer(
-        "What language is this? I don't understand. Let's speak at basic.\n\n"
-        f"{start_text(message.from_user.full_name)}",
-        reply_markup=main_menu_kb()
-    ) 
+    await render_start_menu(event=message, extra_prefix="What language is this? I don't understand. Let's speak at basic.\n\n")
+    # await message.answer(
+    #     "What language is this? I don't understand. Let's speak at basic.\n\n"
+    #     f"{start_text(message.from_user.full_name)}",
+    #     reply_markup=main_menu_kb()
+    # ) 
 
 # Main menu callback handlers
+@router.callback.query(MainMenuCB.filter(F.chapter == "Main"))
+async def back_meenu(query: CallbackQuery, callback_data: MainMenuCB):
+    await render_start_menu(event=CallbackQuery)
+
 @router.callback_query(MainMenuCB.filter(F.chapter == "Catalog"))
 async def catalog(query: CallbackQuery, callback_data: MainMenuCB):
     await query.answer()
@@ -51,8 +78,4 @@ async def items(query: CallbackQuery, callback_data: CatalogCB):
     await query.answer()
     await query.message.edit_text("Select position", reply_markup=items_kb(callback_data.cat_id))
 
-def start_text(full_name: str) -> str:
-    return (
-        f"Hello, {html.bold(full_name)}!\n"
-        "In this bot you can buy goods from a universe far, far away."
-    )
+
